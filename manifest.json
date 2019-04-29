@@ -10,6 +10,16 @@
     "96": "icons/csrf.svg"
   },
 
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/csrf.svg",
+    "default_title": "CSRF hunter",
+    "default_popup": "popup/popup.html"
+  },
+
   "content_scripts": [
     {
       "matches": ["*://*/*"],
