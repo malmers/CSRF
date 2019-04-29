@@ -1,4 +1,9 @@
-var forms = Array.from(document.getElementsByTagName("form"));
-forms = forms.filter(form => form.method === "get");
+var forms = Array.from(document.getElementsByTagName("form"))
+                 .filter(form => form.method === "get");
 
-console.log(forms.length);
+forms = forms.map(form =>
+  Array.from(form.getElementsByTagName('input'))
+       .filter(input => input.type === "search"))
+       .filter(form => form.length > 0);
+
+console.log(forms);
