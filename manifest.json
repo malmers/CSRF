@@ -12,7 +12,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.mozilla.org/*"],
+      "matches": ["*://*/*"],
       "run_at": "document_end",
       "js": ["csrf.js"]
     }
