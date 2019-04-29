@@ -1,9 +1,13 @@
 var forms = Array.from(document.getElementsByTagName("form"))
-                 .filter(form => form.method === "get");
+                 .filter(form => form.method !== "get");
 
-forms = forms.map(form =>
+forms = forms.filter(form =>
   Array.from(form.getElementsByTagName('input'))
-       .filter(input => input.type === "search"))
-       .filter(form => form.length > 0);
+       .every(input => input.type !== "hidden"));
 
-console.log(forms);
+
+if(forms.length) {
+  console.log(forms);
+} else {
+  console.log("No such form");
+}
