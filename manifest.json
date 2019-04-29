@@ -6,7 +6,8 @@
   "description": "CSRF hunter",
 
   "icons": {
-    "48": "icons/csrf-48.png"
+    "48": "icons/csrf.svg",
+    "96": "icons/csrf.svg"
   },
 
   "content_scripts": [
