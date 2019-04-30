@@ -1,3 +1,5 @@
+"use strict";
+
 var forms = Array.from(document.getElementsByTagName("form"))
                  .filter(form => form.method !== "get");
 
@@ -11,3 +13,7 @@ if(forms.length) {
 } else {
   console.log("No such form");
 }
+
+browser.runtime.onMessage.addListener(message => {
+  return Promise.resolve({response: forms.map(e => e.action)});
+});
