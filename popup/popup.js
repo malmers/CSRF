@@ -10,12 +10,20 @@ function getForms(tabs) {
   browser.tabs.sendMessage(tabs[0].id, {
     command: "getForms"
   }).then(response => {
-    showForms(response.response)
+    showForms(response.actions, response.methods)
   }).catch(onError);
 }
 
-function showForms(forms) {
-  form_list.innerText = forms;
+function showForms(actions, methods) {
+  var forms = actions.map(function(e, i) {
+    return [e, methods[i]];
+  });
+  form_list.innerHTML = "";
+  forms.forEach(e => {
+    var a = document.createElement('p');
+    a.innerText = e[0] + " " + e[1];
+    form_list.appendChild(a);
+  });
 }
 
 browser.tabs.query({active: true, currentWindow: true})
