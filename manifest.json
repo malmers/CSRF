@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "CSRF",
+  "name": "CSRF spotter",
   "version": "1.0",
 
-  "description": "CSRF hunter",
+  "description": "Find potential CSRF vulnerabilities",
 
   "icons": {
     "48": "icons/csrf.svg",
@@ -16,7 +16,7 @@
 
   "browser_action": {
     "default_icon": "icons/csrf.svg",
-    "default_title": "CSRF hunter",
+    "default_title": "CSRF spotter",
     "default_popup": "popup/popup.html"
   },
 
