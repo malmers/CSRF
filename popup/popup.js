@@ -1,5 +1,7 @@
 "use strict";
 
+var form_list = document.getElementById('unsafe_forms');
+
 function onError(error) {
   console.error(`Error: ${error}`);
 }
@@ -13,7 +15,7 @@ function getForms(tabs) {
 }
 
 function showForms(forms) {
-  document.getElementById('popup-content').innerText = forms
+  form_list.innerText = forms;
 }
 
 browser.tabs.query({active: true, currentWindow: true})
