@@ -26,5 +26,9 @@
       "run_at": "document_end",
       "js": ["csrf.js"]
     }
-  ]
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  }
 }

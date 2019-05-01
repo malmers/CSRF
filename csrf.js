@@ -1,19 +1,18 @@
 "use strict";
 
-var forms = Array.from(document.getElementsByTagName("form"))
+function getForms() {
+  var forms = Array.from(document.getElementsByTagName("form"))
                  .filter(form => form.method !== "get");
 
-forms = forms.filter(form =>
-  Array.from(form.getElementsByTagName('input'))
-       .every(input => input.type !== "hidden"));
-
-
-if(forms.length) {
-  console.log(forms);
-} else {
-  console.log("No such form");
+  forms = forms.filter(form =>
+    Array.from(form.getElementsByTagName('input'))
+        .every(input => input.type !== "hidden"));
+  
+  return forms;
 }
 
+browser.runtime.sendMessage({"forms": getForms().length + ""});
+
 browser.runtime.onMessage.addListener(message => {
-  return Promise.resolve({response: forms.map(e => e.action)});
+  return Promise.resolve({response: getForms().map(e => e.action)});
 });
